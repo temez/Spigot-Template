@@ -1,0 +1,5 @@
+name: Main
+version: '${version}'
+main: dev.temez.snippet.Main
+api-version: 1.19
+authors: [ temez ]
