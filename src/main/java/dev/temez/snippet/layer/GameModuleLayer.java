@@ -3,7 +3,7 @@ package dev.temez.snippet.layer;
 
 import dev.temez.snippet.Main;
 import dev.temez.snippet.exception.ModuleStateException;
-import dev.temez.snippet.util.Module;
+import dev.temez.snippet.module.Module;
 import dev.temez.snippet.util.semantics.Layer;
 import lombok.AccessLevel;
 import lombok.Getter;

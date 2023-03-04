@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 
 /**
  * @author temez
- * @since 0.0.1dev
+ * @since 0.1dev
  */
 @FieldDefaults(level = AccessLevel.PROTECTED)
 @Getter

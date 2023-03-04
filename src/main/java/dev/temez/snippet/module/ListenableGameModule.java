@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 
 /**
  * @author temez
- * @since 0.0.1dev
+ * @since 0.1dev
  */
 public abstract class ListenableGameModule extends GameModule implements Listener {
 

@@ -1,6 +1,8 @@
 plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'java'
 }
+
 
 group = 'dev.temez.snippet'
 version = '0.1dev'
@@ -15,20 +17,32 @@ repositories {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
+    maven {
+        name = 'codmc-repo'
+        url = 'https://repo.codemc.io/repository/maven-public/'
+    }
+    maven {
+        name = 'jitpack'
+        url = 'https://jitpack.io'
+    }
 }
 
-configurations {
-    packToJar
-}
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.22'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    compileOnly 'io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT'
-    implementation 'com.j256.ormlite:ormlite-jdbc:5.0'
-    packToJar 'com.j256.ormlite:ormlite-jdbc:5.0'
-    compileOnly fileTree(dir: "libs", includes: ['*.jar'])
-    packToJar fileTree(dir: "libs", includes: ['*.jar'])
+    compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'com.j256.ormlite:ormlite-jdbc:6.1'
+    implementation 'com.samjakob:SpiGUI:1.2.3'
+    implementation 'de.tr7zw:item-nbt-api:2.11.1'
+}
+
+shadowJar {
+    relocate 'org.apache.commons', 'dev.temez.snippet.util.commons'
+    relocate 'com.samjakob.spigui', 'dev.temez.snippet.util.gui'
+    relocate 'de.tr7zw.changeme.nbtapi', 'dev.temez.snippet.util.nbtapi'
+    minimize()
 }
 
 tasks.with {
@@ -49,11 +63,4 @@ processResources {
 
 test {
     useJUnitPlatform();
-}
-
-jar {
-    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
-    from {
-        configurations.packToJar.collect { it.isDirectory() ? it : zipTree(it) }
-    }
 }

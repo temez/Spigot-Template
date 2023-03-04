@@ -1,6 +1,6 @@
 package dev.temez.snippet.util.settings;
 
-import dev.temez.utilities.spigot.configuration.reflect.annotation.ConfigurationPath;
+import dev.temez.snippet.util.configuration.annotation.ConfigurationPath;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.experimental.FieldDefaults;
 
 /**
  * @author temez
- * @since 0.1.2
+ * @since 0.1dev
  */
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)

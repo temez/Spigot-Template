@@ -1,8 +1,8 @@
-package dev.temez.snippet.util;
+package dev.temez.snippet.module;
 
 /**
  * @author temez
- * @since 0.0.1dev
+ * @since 0.1dev
  */
 public interface Module {
 

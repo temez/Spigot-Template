@@ -2,7 +2,6 @@ package dev.temez.snippet.module;
 
 import dev.temez.snippet.Main;
 import dev.temez.snippet.exception.ModuleStateException;
-import dev.temez.snippet.util.Module;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
