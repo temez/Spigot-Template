@@ -35,9 +35,9 @@ public class GameModuleLayer extends Layer {
     }
 
     @SneakyThrows(ModuleStateException.class)
-    public Module get(Class<? extends Module> moduleClass) {
+    public <T extends Module> T get(Class<T> moduleClass) {
         if (!loadedModules.containsKey(moduleClass)) throw new ModuleStateException("Module is not loaded to loader");
-        return loadedModules.getOrDefault(moduleClass, null);
+        return moduleClass.cast(loadedModules.get(moduleClass));
     }
 
     @Override
